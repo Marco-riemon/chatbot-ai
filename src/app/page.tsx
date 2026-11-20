@@ -9,6 +9,7 @@ import { ApiKeysView } from '@/components/views/ApiKeysView';
 import { UsageView } from '@/components/views/UsageView';
 import { QualityView } from '@/components/views/QualityView';
 import { SettingsView } from '@/components/views/SettingsView';
+import { TutorialView } from '@/components/views/TutorialView';
 import { ModelInfo } from '@/lib/types';
 
 export default function HomePage() {
@@ -64,6 +65,7 @@ export default function HomePage() {
         {currentTab === 'overview' && (
           <OverviewView onNavigateTab={setCurrentTab} />
         )}
+        {currentTab === 'tutorial' && <TutorialView />}
         {currentTab === 'quality' && <QualityView />}
         {currentTab === 'providers' && (
           <ProvidersView models={models} onRefreshModels={fetchModels} />

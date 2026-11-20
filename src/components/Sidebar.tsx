@@ -10,10 +10,11 @@ import {
   Settings, 
   ShieldCheck,
   Zap,
-  Sparkles
+  Sparkles,
+  BookOpen
 } from 'lucide-react';
 
-export type TabType = 'chat' | 'overview' | 'providers' | 'keys' | 'usage' | 'quality' | 'settings';
+export type TabType = 'chat' | 'overview' | 'providers' | 'keys' | 'usage' | 'quality' | 'settings' | 'tutorial';
 
 interface SidebarProps {
   currentTab: TabType;
@@ -26,6 +27,7 @@ export function Sidebar({ currentTab, onSelectTab, activeProviderName = 'Groq', 
   const navItems = [
     { id: 'chat', label: 'AI Chat', icon: MessageSquare },
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
+    { id: 'tutorial', label: 'Tutorial', icon: BookOpen },
     { id: 'quality', label: 'Quality & Evaluation', icon: Sparkles },
     { id: 'providers', label: 'Providers & Models', icon: Cpu },
     { id: 'keys', label: 'API Key Manager', icon: KeyRound },
@@ -60,6 +62,7 @@ export function Sidebar({ currentTab, onSelectTab, activeProviderName = 'Groq', 
             return (
               <button
                 key={item.id}
+                data-tab={item.id}
                 onClick={() => onSelectTab(item.id)}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-medium transition-all ${
                   isActive
